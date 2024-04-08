@@ -8,7 +8,7 @@ import { PhotoIcon } from '@heroicons/react/24/solid';
 
 import ToastMessage from './ToastMessage';
 
-import { AppConfig } from '../../common/types/config';
+import { AppConfig } from '~/common/types/config';
 
 interface InputFile extends File {
     path: string;

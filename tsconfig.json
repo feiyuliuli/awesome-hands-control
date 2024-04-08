@@ -17,9 +17,12 @@
     "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
+      "~/*": [
+        "./*"
+      ],
       "@/*": [
         "src/*"
-      ]
+      ],
     },
   },
   "include": ["src", "electron", "common"],

@@ -9,8 +9,8 @@ import { KeyboardEventKeyCodeToRobotJSKeyCode } from "@/helpers/KeyboardUtils";
 
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
-import { HAND_IMG_PATHS } from '../../common/constants/config';
-import { AppConfig, Shortcut } from '../../common/types/config';
+import { HAND_IMG_PATHS } from '~/common/constants/config';
+import { AppConfig, Shortcut } from '~/common/types/config';
 
 /**
  * 全局设置的特定操作

@@ -1,12 +1,13 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
-import react from '@vitejs/plugin-react'
-import electron from 'vite-plugin-electron/simple'
+import alias from "@rollup/plugin-alias";
+import react from '@vitejs/plugin-react';
+import electron from 'vite-plugin-electron/simple';
 
-import { rmSync } from 'node:fs'
-import path from 'node:path'
+import { rmSync } from 'node:fs';
+import path from 'node:path';
 
-import pkg from './package.json'
+import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -19,6 +20,7 @@ export default defineConfig(({ command }) => {
   return {
     resolve: {
       alias: {
+        '~': path.join(__dirname),
         '@': path.join(__dirname, 'src')
       },
     },
@@ -42,6 +44,16 @@ export default defineConfig(({ command }) => {
               outDir: 'dist-electron/',
               rollupOptions: {
                 external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
+                plugins: [
+                  alias({
+                    entries: [
+                      {
+                        find: "~",
+                        replacement: __dirname,
+                      },
+                    ],
+                  })
+                ]
               },
             },
           },
@@ -57,6 +69,16 @@ export default defineConfig(({ command }) => {
               outDir: 'dist-electron/',
               rollupOptions: {
                 external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
+                plugins: [
+                  alias({
+                    entries: [
+                      {
+                        find: "~",
+                        replacement: __dirname,
+                      },
+                    ],
+                  })
+                ]
               },
             },
           },
